@@ -32,5 +32,17 @@ pipeline {
                 bat 'dotnet test --no-build --verbosity normal'
             }
         }
+        
+    }
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Build and tests succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs!'
+        }
     }
 }
